@@ -1,0 +1,132 @@
+@startuml
+
+title Sistema de Adocao de Animais 
+
+
+class Pessoa {
+    -nome: Varchar(100)
+    -email: Varchar(100)
+    -senha: Varchar(30)
+    -telefone: Varchar(20)
+    -cpf: Varchar(14)
+    -preferenciasAnimal: Text
+    -historicoAdocoes: Text
+    -tipoRelacionamento: Enum (Adotante, Doador, Administrador)
+    +registrar()
+    +login()
+    +editarPerfil()
+    +visualizarPerfil()
+    +buscarAnimais()
+    +enviarSolicitacaoAdocao()
+    +cancelarSolicitacao()
+    +realizarDoacao()
+}
+
+class ONG {
+    -nomeInstituicao: Varchar(100)
+    -cnpj: Varchar(25)
+    -endereco: Varchar(200)
+    -dataFundacao: Date
+    +cadastrarAnimal()
+    +removerAnimal()
+    +gerenciarCampanhas()
+    +aprovarAdocao()
+}
+
+class Animal {
+    -nome: Varchar(50)
+    -especie: Varchar(30)
+    -raca: Varchar(50)
+    -idade: Integer
+    -sexo: Char(1)
+    -descricao: Text
+    -status: Varchar(20)
+    -dataEntrada: Date
+    -necessidadesEspeciais: Text
+    +atualizarStatus()
+    +editarInformacoes()
+    +exibirDetalhes()
+}
+
+class Adocao {
+    -dataSolicitacao: Date
+    -dataConclusao: Date
+    -status: Varchar(20)
+    -requerDocumentos: Boolean
+    +registrarAdocao()
+    +concluirAdocao()
+    +cancelarAdocao()
+}
+
+class AgendamentoVisita {
+    -dataVisita: Date
+    -horaVisita: Time
+    -local: Varchar(100)
+    -motivoVisita: Varchar(100)
+    +agendarVisita()
+    +alterarData()
+    +cancelarVisita()
+}
+
+class Campanha {
+    -titulo: Varchar(100)
+    -descricao: Text
+    -dataInicio: Date
+    -dataFim: Date
+    -local: Varchar(100)
+    -metaDoacao: Decimal(10,2)
+    -status: Varchar(20)
+    -tipoCampanha: Varchar(50)
+    +criarCampanha()
+    +editarCampanha()
+    +encerrarCampanha()
+    +listarCampanhasAtivas()
+    +participarCampanha()
+}
+
+class PagamentoDoacao {
+    -valor: Decimal(10,2)
+    -dataPagamento: Date
+    -formaPagamento: Varchar(20)
+    -comprovanteUrl: Varchar(255)
+    +realizarPagamento()
+    +gerarComprovante()
+}
+
+class MonitoramentoPosAdocao {
+    -dataVisita: Date
+    -tipoContato: Enum (Presencial, Telefone, Email, Foto/Vídeo)
+    -relatorio: Text
+    -condicaoAnimal: Varchar(50)
+    -observacoes: Text
+    -proximaData: Date
+    +registrarMonitoramento()
+    +avaliarCondicao()
+    +agendarProximoContato()
+}
+
+
+' Relacionamentos
+
+ONG "1" o-- "muitos" Animal : gerencia >
+Pessoa "1" o-- "muitos" Adocao : solicita >
+Adocao "1" o-- "1" Animal : envolve >
+Adocao "1" o-- "0..1" AgendamentoVisita : possui >
+Pessoa "1" o-- "muitos" AgendamentoVisita : agenda/recebe >
+ONG "1" o-- "muitos" AgendamentoVisita : recebe >
+ONG "1" o-- "muitos" Campanha : cria >
+Campanha "1" o-- "muitos" PagamentoDoacao : recebe >
+Pessoa "1" o-- "muitos" PagamentoDoacao : realiza >
+Pessoa "1..*" -- "1..*" ONG : colabora >
+
+Adocao "1" *-- "muitos" MonitoramentoPosAdocao : inclui >
+ONG "1" o-- "muitos" MonitoramentoPosAdocao : realiza >
+
+
+Animal -[hidden]down-> Adocao
+ONG -[hidden]down-> Animal
+Pessoa -[hidden]down-> Adocao
+ONG -[hidden]right- PagamentoDoacao
+Adocao -[hidden]down-> MonitoramentoPosAdocao
+
+@enduml
