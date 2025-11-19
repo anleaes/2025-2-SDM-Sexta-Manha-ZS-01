@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'pessoa.apps.PessoaConfig',
-    'ONG.apps.ONGConfig',
+    'ong.apps.OngConfig',
 ]
 
 MIDDLEWARE = [

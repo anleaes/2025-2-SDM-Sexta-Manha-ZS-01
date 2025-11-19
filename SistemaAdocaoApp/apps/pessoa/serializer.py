@@ -1,7 +1,7 @@
-from rest_framework import serializer
+from rest_framework import serializers
 from .models import pessoa
 
-class pessoaSerializer(serializer.ModelSerializer):
+class pessoaSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = pessoa

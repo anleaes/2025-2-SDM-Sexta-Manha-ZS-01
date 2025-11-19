@@ -2,11 +2,11 @@ from django.db import models
 
 class pessoa(models.Model): 
     
-    nome = models.CharField('Nome', max_length=100)
+    nome = models.CharField(max_length=100)
     email = models.EmailField('Email', max_length=100)
-    senha = models.CharField('Senha', max_length=30)
-    telefone = models.CharField('Telefone', max_length=20)
-    cpf = models.CharField('CPF', max_length=14)
+    senha = models.CharField('Senha', max_length=30, null=True, blank=True)
+    telefone = models.CharField('Telefone', max_length=20, null=True, blank=True)
+    cpf = models.CharField(max_length=14)
     preferencias_animal = models.TextField('Preferências', null=True, blank=True)
     historico_adocoes = models.TextField('Histórico', null=True, blank=True)
     
@@ -16,7 +16,7 @@ class pessoa(models.Model):
         ('ADM', 'Administrador')
     ]
     
-    tipo_relacionamento = models.CharField('Relacionamento', max_length=3, choices=TIPO_RELACIONAMENTO) 
+    tipo_relacionamento = models.CharField('Relacionamento', max_length=3, choices=TIPO_RELACIONAMENTO, default='A') 
     
     class Meta:
         verbose_name = 'pessoa' 

@@ -1,3 +1,5 @@
 SistemaAdocaoApp/__pycache__/*
 /apps/pessoa/__pycache__/*
 /apps/pessoa/migrations/*
+/apps/ong/__pycache__/*
+/apps/ong/migrations/*
