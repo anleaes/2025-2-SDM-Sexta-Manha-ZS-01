@@ -10,8 +10,8 @@ class ONG(models.Model):
     data_fundacao = models.DateField('Data de Fundação')
     
     class Meta:
-        verbose_name = 'ong'
-        verbose_name_plural = 'ongs'
+        verbose_name = 'ONG'
+        verbose_name_plural = 'ONGs'
         ordering =['nome_instituicao']
 
     def __str__(self):
