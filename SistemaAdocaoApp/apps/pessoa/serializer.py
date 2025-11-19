@@ -1,9 +1,7 @@
-
+from rest_framework import serializer
 from .models import pessoa
-from rest_framework import serializers
 
-class pessoaSerializer(serializers.ModelSerializer):
+class pessoaSerializer(serializer.ModelSerializer):
     class Meta:
         model = pessoa
         fields = '__all__'
-        
