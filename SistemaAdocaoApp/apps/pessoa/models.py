@@ -2,11 +2,11 @@ from django.db import models
 
 class pessoa(models.Model): 
     
-    nome = models.CharField('Nome', max_length=100, null=True, blank=True)
-    email = models.EmailField('Email', max_length=100, null=True, blank=True)
+    nome = models.CharField(max_length=100)
+    email = models.EmailField('Email', max_length=100)
     senha = models.CharField('Senha', max_length=30, null=True, blank=True)
     telefone = models.CharField('Telefone', max_length=20, null=True, blank=True)
-    cpf = models.CharField('CPF', max_length=14, null=True, blank=True)
+    cpf = models.CharField(max_length=14)
     preferencias_animal = models.TextField('Preferências', null=True, blank=True)
     historico_adocoes = models.TextField('Histórico', null=True, blank=True)
     
