@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import ONG
-from .serializer import ONGSerializer
+from .models import ong
+from .serializer import ongSerializer
 
 # Create your views here.
-class ONGViewSet(viewsets.ModelViewSet):
-    queryset = ONG.objects.all()
-    serializer_class = ONGSerializer
-    
+class ongViewSet(viewsets.ModelViewSet):
+    queryset = ong.objects.all()
+    serializer_class = ongSerializer

@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class ONG(models.Model):
+class ong(models.Model):
     
     nome_instituicao = models.CharField('Nome da Instituição', max_length=100)
     cnpj = models.CharField('CNPJ', max_length=25, unique=True) 
@@ -10,8 +10,8 @@ class ONG(models.Model):
     data_fundacao = models.DateField('Data de Fundação')
     
     class Meta:
-        verbose_name = 'ONG'
-        verbose_name_plural = 'ONGs'
+        verbose_name = 'ong'
+        verbose_name_plural = 'ongs'
         ordering =['nome_instituicao']
 
     def __str__(self):
