@@ -1,7 +1,7 @@
 from .models import Campanha
 from rest_framework import serializers
 
-class ongSerializer(serializers.ModelSerializer):
+class CampanhaSerializer(serializers.ModelSerializer):
     class Meta:
         
         model = Campanha
