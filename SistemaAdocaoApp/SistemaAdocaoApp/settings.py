@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'pessoa.apps.PessoaConfig',
     'ong.apps.OngConfig',
     'animal.apps.AnimalConfig',
-    'adocao.apps.AdocaoConfig',
-    
+    'animal.apps.AnimalConfig',
+    'agendamento.apps.AgendamentoConfig',
 ]
 
 MIDDLEWARE = [
