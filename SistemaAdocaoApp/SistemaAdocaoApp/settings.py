@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'adocao.apps.AdocaoConfig',
     'agendamento.apps.AgendamentoConfig',
     'campanha.apps.CampanhaConfig',
+    'pagamento.apps.PagamentoConfig',
 ]
 
 MIDDLEWARE = [
