@@ -5,3 +5,5 @@ SistemaAdocaoApp/__pycache__/*
 /apps/ong/migrations/*
 /apps/animal/__pycache__/*
 /apps/animal/migrations/*
+/apps/adocao/__pycache__/*
+/apps/adocao/migrations/*
