@@ -4,11 +4,10 @@ from ong.models import ong
 from adocao.models import Adocao
 
 class AgendamentoVisita(models.Model):
-    # Atributos de Tempo e Local
+    
     data_hora_visita = models.DateTimeField('Data e Hora da Visita')
     local_visita = models.CharField('Local da Visita', max_length=200)
     
-    # Opções para o Status do Agendamento
     STATUS_AGENDAMENTO = [
         ('P', 'Pendente'),
         ('C', 'Confirmado'),
@@ -17,7 +16,6 @@ class AgendamentoVisita(models.Model):
     ]
     status_agendamento = models.CharField('Status', max_length=1, choices=STATUS_AGENDAMENTO, default='P')
     
-    # Observações e Feedback
     observacoes = models.TextField('Observações', null=True, blank=True)
     feedback_ong = models.TextField('Feedback da ONG', null=True, blank=True)
     
