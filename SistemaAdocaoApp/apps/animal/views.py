@@ -4,3 +4,6 @@ from .models import Animal
 from .serializer import AnimalSerializer
 
 # Create your views here.
+class AnimalViewSet(viewsets.ModelViewSet):
+    queryset = Animal.objects.all()
+    serializer_class = AnimalSerializer
