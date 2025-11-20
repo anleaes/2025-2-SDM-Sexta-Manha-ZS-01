@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'agendamento.apps.AgendamentoConfig',
     'campanha.apps.CampanhaConfig',
     'pagamento.apps.PagamentoConfig',
+    'monitoramento.apps.MonitoramentoConfig',
     
 ]
 
