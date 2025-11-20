@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'pessoa.apps.PessoaConfig',
     'ong.apps.OngConfig',
     'animal.apps.AnimalConfig',
+    'adocao.apps.AdocaoConfig',
     
 ]
 
