@@ -5,6 +5,6 @@ from .serializer import AdocaoSerializer
 
 # Create your views here.
 
-class AdocaolViewSet(viewsets.ModelViewSet):
+class AdocaoViewSet(viewsets.ModelViewSet):
     queryset = Adocao.objects.all()
     serializer_class = AdocaoSerializer
